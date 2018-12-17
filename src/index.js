@@ -25,7 +25,7 @@ class MyArray {
     }
 
     static from(arrayLike, mapFn, thisArg) {
-        let newArr = new PseudoArray();
+        let newArr = new MyArray();
         if (arguments.length === 1) {
             for (var i = 0; i < arrayLike.length; i++) {
                 newArr.push(arrayLike[i]);
@@ -63,7 +63,7 @@ class MyArray {
         if (!callback) {
             return;
         }
-        let newObj = new PseudoArray();
+        let newObj = new MyArray();
         if (thisArg) {
             for (var i = 0; i < this.length; i++) {
                 newObj.push(callback.call(thisArg, this[i], i, this));
@@ -92,7 +92,7 @@ class MyArray {
         if (!callback) {
             return;
         }
-        let newObj = new PseudoArray();
+        let newObj = new MyArray();
         if (thisArg) {
             for (var i = 0; i < this.length; i++) {
                 var match = callback.call(thisArg, this[i], i, this);
@@ -120,7 +120,7 @@ class MyArray {
         }
 
         if (this.length === 0 && !initialValue) {
-            throw new TypeError('PseudoArray.prototype.reduce called on null or undefined');
+            throw new TypeError('MyArray.prototype.reduce called on null or undefined');
         }
 
         if (this.length === 1 && !initialValue) {
@@ -175,3 +175,6 @@ class MyArray {
         }
     }
 }
+
+ //export default MyArray;
+ module.exports = MyArray;
